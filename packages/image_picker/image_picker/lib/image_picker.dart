@@ -45,6 +45,8 @@ class ImagePicker {
   /// image types such as JPEG. If compression is not supported for the image that is picked,
   /// an warning message will be logged.
   ///
+  /// Set `iosPhaAsset` to `false` to disable `PHAAsset` and related permissions requirements on iOS.
+  ///
   /// Use `preferredCameraDevice` to specify the camera to use when the `source` is [ImageSource.camera].
   /// The `preferredCameraDevice` is ignored when `source` is [ImageSource.gallery]. It is also ignored if the chosen camera is not supported on the device.
   /// Defaults to [CameraDevice.rear].
@@ -57,12 +59,14 @@ class ImagePicker {
       double maxWidth,
       double maxHeight,
       int imageQuality,
+      bool iosPhaAsset = true,
       CameraDevice preferredCameraDevice = CameraDevice.rear}) async {
     String path = await platform.pickImagePath(
       source: source,
       maxWidth: maxWidth,
       maxHeight: maxHeight,
       imageQuality: imageQuality,
+      iosPhaAsset: iosPhaAsset,
       preferredCameraDevice: preferredCameraDevice,
     );
 
@@ -88,6 +92,8 @@ class ImagePicker {
   /// image types such as JPEG and on Android PNG and WebP, too. If compression is not supported for the image that is picked,
   /// a warning message will be logged.
   ///
+  /// Set `iosPhaAsset` to `false` to disable `PHAAsset` and related permissions requirements on iOS.
+  ///
   /// Use `preferredCameraDevice` to specify the camera to use when the `source` is [ImageSource.camera].
   /// The `preferredCameraDevice` is ignored when `source` is [ImageSource.gallery]. It is also ignored if the chosen camera is not supported on the device.
   /// Defaults to [CameraDevice.rear]. Note that Android has no documented parameter for an intent to specify if
@@ -101,6 +107,7 @@ class ImagePicker {
     double maxWidth,
     double maxHeight,
     int imageQuality,
+    bool iosPhaAsset = true,
     CameraDevice preferredCameraDevice = CameraDevice.rear,
   }) {
     return platform.pickImage(
@@ -108,6 +115,7 @@ class ImagePicker {
       maxWidth: maxWidth,
       maxHeight: maxHeight,
       imageQuality: imageQuality,
+      iosPhaAsset: iosPhaAsset,
       preferredCameraDevice: preferredCameraDevice,
     );
   }
