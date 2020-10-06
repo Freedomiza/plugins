@@ -1,3 +1,10 @@
+## 0.6.7+?
+
+* iOS
+  - Change presentation style to |UIModalPresentationPopover| to prevent an iOS 14 crash.
+  - Do not bring up the image picker if the second request is too early.
+  - Setup XCUITests.
+
 ## 0.6.7+12
 
 * Update android compileSdkVersion to 29.
